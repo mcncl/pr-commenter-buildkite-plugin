@@ -9,4 +9,4 @@ d=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 build_dir="$(dirname "$d")"
 
 echo "~~~ Building plugin hooks"
-go build -C "${build_dir}" -o "$build_dir/hooks/pre-exit"
+docker run --rm -v "${build_dir}":/plugin -w /plugin golang:latest go build -o hooks/pre-exit
