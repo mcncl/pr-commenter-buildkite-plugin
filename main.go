@@ -29,13 +29,13 @@ func run() exitCode {
 
 	owner, repo, err := repo.ParseRepo(os.Getenv("BUILDKITE_REPO"))
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error parsing repo info: %v", err)
+		fmt.Fprintf(os.Stderr, "Error parsing repo info: %s\n", err)
 		return exitError
 	}
 
 	prNumber := os.Getenv("BUILDKITE_PULL_REQUEST")
 	if prNumber == "false" {
-		fmt.Fprintf(os.Stdout, "Not a pull request. Exiting gracefully.")
+		fmt.Fprintf(os.Stdout, "Not a pull request. Exiting gracefully.\n")
 		return exitOK
 	}
 
@@ -46,13 +46,14 @@ func run() exitCode {
 
 	token, err := secret.GetSecret(secretName)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error retrieving secret: %v", err)
+		fmt.Print(secretName)
+		fmt.Fprintf(os.Stderr, "Error retrieving secret: %s\n", err)
 		return exitError
 	}
 
 	client, err := github.New(token)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error creating GitHub client: %v", err)
+		fmt.Fprintf(os.Stderr, "Error creating GitHub client: %s\n", err)
 		return exitError
 	}
 
@@ -64,7 +65,7 @@ func run() exitCode {
 
 	err = comment.Post(ctx, client, owner, repo, prNumber, message)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error posting comment: %v", err)
+		fmt.Fprintf(os.Stderr, "Error posting comment: %s\n", err)
 	}
 
 	fmt.Println("Comment posted successfully")

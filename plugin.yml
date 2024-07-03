@@ -2,13 +2,13 @@ name: PR Commenter
 description: A Buildkite plugin which will comment on pull requests
 author: "@mcncl"
 requirements:
-   - go
-   - bash
+  - go
+  - bash
 configuration:
-    properties:
-      message:
-         type: string
-      secret-name:
-         type: string
-    required:
-      - secret-name
+  properties:
+    message:
+      type: string
+    secret-name:
+      type: string
+  required:
+    - secret-name

@@ -19,5 +19,7 @@ steps:
   - wait: ~
 
   - label: "Test plugin"
-    command: echo "Sweet plugin!" && go version
+    command: echo "Sweet plugin!"
+    plugins:
+      - ssh://git@github.com/mcncl/pr-commenter-buildkite-plugin: ~
           
