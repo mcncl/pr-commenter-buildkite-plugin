@@ -2,8 +2,9 @@ package secret_test
 
 import (
 	"os/exec"
-	"prcommenter/internal/secret"
 	"testing"
+
+	"prcommenter/internal/secret"
 )
 
 func TestGetSecret(t *testing.T) {

@@ -1,8 +1,9 @@
 package repo_test
 
 import (
-	"prcommenter/internal/repo"
 	"testing"
+
+	"prcommenter/internal/repo"
 )
 
 func TestParseRepoInfo(t *testing.T) {

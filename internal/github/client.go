@@ -2,6 +2,7 @@ package github
 
 import (
 	"context"
+
 	"prcommenter/internal/issue/comment"
 
 	"github.com/google/go-github/github"

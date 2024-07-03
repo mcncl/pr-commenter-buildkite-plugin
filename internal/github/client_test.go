@@ -1,8 +1,9 @@
 package github_test
 
 import (
-	"prcommenter/internal/github"
 	"testing"
+
+	"prcommenter/internal/github"
 )
 
 func TestNew(t *testing.T) {

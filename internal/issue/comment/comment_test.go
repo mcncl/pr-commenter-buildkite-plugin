@@ -2,8 +2,9 @@ package comment_test
 
 import (
 	"context"
-	"prcommenter/internal/issue/comment"
 	"testing"
+
+	"prcommenter/internal/issue/comment"
 
 	"github.com/google/go-github/github"
 )
