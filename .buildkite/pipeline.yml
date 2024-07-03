@@ -1,3 +1,6 @@
+env:
+  BUILDKITE_CLEAN_CHECKOUT: true
+
 steps:
   - name: ":golangci-lint: lint"
     command: golangci-lint run --verbose --timeout 3m
