@@ -1,0 +1,9 @@
+version: '3.5'
+
+services:
+  golangci-lint:
+    image: golangci/golangci-lint:v1.54.1
+    working_dir: /plugin
+    volumes:
+      - ..:/plugin
+      - ~/.cache/golangci-lint/v1.54.1:/root/.cache
