@@ -9,4 +9,4 @@ d=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 build_dir="$(dirname "$d")"
 
 echo "~~~ 🔌 Building plugin hooks"
-/usr/bin/env go build -C "${build_dir}" -o "$build_dir/hooks/pre-exit"
+go build -C "${build_dir}" -o "$build_dir/hooks/pre-exit"
