@@ -21,5 +21,5 @@ steps:
   - label: "Test plugin"
     command: echo "Sweet plugin!"
     plugins:
-      - mcncl/pr-commenter: ~
+      - ssh://git@github.com/mcncl/pr-commenter: ~
           
