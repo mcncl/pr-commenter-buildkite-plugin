@@ -7,6 +7,8 @@ The plugin has been tested and built using **go 1.20.3**, so it is not guarantee
 
 The plugin binary will get build in the step and output as a `pre-exit` hook. This ensures that it runs as the last command on the step and is able to get the *exit code* of the step that it runs on (necessary for the default message).
 
+The use of this plugin requires that clusters are being used and that the secret is available on that cluster, else the plugin will error.
+
 ## 👩‍💻 Usage
 
 Add the following to your `pipeline.yml`:
