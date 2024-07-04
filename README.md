@@ -15,7 +15,7 @@ Add the following to your `pipeline.yml`:
     steps:
         command: echo "cool plugin!"
         plugins:
-            - pr-commenter#v0.0.1:
+            - mcncl/pr-commenter#v0.0.1:
                 message: "LGTM!"
                 secret-name: GITHUB_TOKEN
 ```
