@@ -8,5 +8,5 @@ set -euo pipefail
 d=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 build_dir="$(dirname "$d")"
 
-echo "~~~ Building plugin hooks"
+echo "~~~ :electric_plug: Building plugin hooks"
 docker run --rm -v "${build_dir}":/plugin -w /plugin golang:latest go build -o hooks/pre-exit
