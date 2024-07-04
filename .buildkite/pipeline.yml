@@ -25,4 +25,4 @@ steps:
     command: echo "Sweet plugin!"
     plugins:
       - ssh://git@github.com/mcncl/pr-commenter-buildkite-plugin: ~
-          
+          - secret-name: "SUPER_SECRET_TOKEN"
