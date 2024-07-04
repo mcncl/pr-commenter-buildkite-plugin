@@ -25,5 +25,5 @@ steps:
     command: echo "Sweet plugin!"
     plugins:
       - ssh://git@github.com/mcncl/pr-commenter-buildkite-plugin#a79a85e:
-          secret-name: SUPER_SECRET_PLUGIN
+          secret-name: SUPER_SECRET_TOKEN
           message: "By George, I think he's done it"
