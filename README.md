@@ -5,7 +5,7 @@ The plugin uses the `/issues` endpoint as that doesn't require a commit SHA or f
 
 The plugin has been tested and built using **go 1.20.3**, so it is not guaranteed to work on versions **<1.20.3**.
 
-⚠️ **Note**: this plugin requires the `polyglot-hooks` [experiment](https://github.com/buildkite/agent/blob/main/EXPERIMENTS.md#polyglot-hooks) to be enabled on your agents.
+The plugin binary will get build in the step and output as a `pre-exit` hook. This ensures that it runs as the last command on the step and is able to get the *exit code* of the step that it runs on (necessary for the default message).
 
 ## 👩‍💻 Usage
 
