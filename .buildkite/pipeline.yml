@@ -19,10 +19,3 @@ steps:
           run: golangci-lint
           tty: true
           mount-buildkite-agent: true
-  - wait: ~
-
-  - label: "Test plugin"
-    command: exit 0
-    plugins:
-      - ssh://git@github.com/mcncl/pr-commenter-buildkite-plugin#a79a85e:
-          secret-name: SUPER_SECRET_TOKEN
