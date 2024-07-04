@@ -46,7 +46,6 @@ func run() exitCode {
 
 	token, err := secret.GetSecret(secretName)
 	if err != nil {
-		fmt.Print(secretName)
 		fmt.Fprintf(os.Stderr, "Error retrieving secret: %s\n", err)
 		return exitError
 	}

@@ -28,6 +28,20 @@ func TestParseRepoInfo(t *testing.T) {
 			wantRepo:  "",
 			wantErr:   true,
 		},
+		{
+			name:      "Valid GitHub SSH URL",
+			repoURL:   "git@github.com:mcncl/repo.git",
+			wantOwner: "mcncl",
+			wantRepo:  "repo",
+			wantErr:   false,
+		},
+		{
+			name:      "Invalid GitHub SSH URL",
+			repoURL:   "git@github.com/mcncl/repo.git",
+			wantOwner: "",
+			wantRepo:  "",
+			wantErr:   true,
+		},
 	}
 
 	for _, tt := range tests {
