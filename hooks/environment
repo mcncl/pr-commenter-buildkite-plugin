@@ -2,6 +2,23 @@
 
 set -euo pipefail
 
+case "$(uname -s)" in
+    Linux*)     HOST_GOOS=linux;;
+    Darwin*)    HOST_GOOS=darwin;;
+    CYGWIN*)    HOST_GOOS=windows;;
+    MINGW*)     HOST_GOOS=windows;;
+    *)          HOST_GOOS="UNKNOWN"
+esac
+
+# Determine host architecture
+case "$(uname -m)" in
+    x86_64*)    HOST_GOARCH=amd64;;
+    i686*)      HOST_GOARCH=386;;
+    arm64*)     HOST_GOARCH=arm64;;
+    arm*)       HOST_GOARCH=arm;;
+    *)          HOST_GOARCH="UNKNOWN"
+esac
+
 # because the environment hook runs in ./hooks/environment, we
 # want to ensure that we are building a directory up
 
@@ -9,4 +26,5 @@ d=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 build_dir="$(dirname "$d")"
 
 echo "~~~ :electric_plug: Building plugin hooks"
-docker run --rm -v "${build_dir}":/plugin -w /plugin golang:latest go build -o hooks/pre-exit
+echo "Building for ${HOST_GOOS} on ${HOST_GOARCH}"
+docker run --rm -v "${build_dir}":/plugin -w /plugin -e GOOS=${HOST_GOOS} -e GOARCH=${HOST_GOARCH} golang:latest go build -o hooks/pre-exit
